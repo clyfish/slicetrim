@@ -2,7 +2,7 @@ Slicetrim is a photoshop script to automatically trim away surrounding transpare
 
 Install:
 1. Install imagemagick and add it to PATH.
-2. Modify the tmp_dir in the script to make it's writeable.
+2. Modify the tmp_dir in the script to make sure it's writeable.
 3. Copy the script to <photoshop_dir>\Presets\Scripts\.
 
 Usage:
