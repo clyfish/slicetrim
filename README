@@ -1,0 +1,10 @@
+Slicetrim is a photoshop script to automatically trim away surrounding transparent space of slice.
+
+Install:
+1. Install imagemagick and add it to PATH.
+2. Modify the tmp_dir in the script.
+3. Copy the script to <photoshop_dir>\Presets\Scripts\.
+
+Usage:
+1. Hide all other layers that aren't part of the slice.
+2. Call the script from menu(File => Scripts => slicetrim), then the slice is automatically created for you.
