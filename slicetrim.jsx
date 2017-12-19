@@ -1,13 +1,20 @@
 // make sure tmp_dir is writeable and path of convert.exe is correct.
 
-var tmp_dir = 'D:\\Users\\cly\\tmp',
+var tmp_dir = 'C:\\Users\\cly\\tmp',
     tmp_png = tmp_dir + '\\tmp.png',
     output_path = tmp_dir + '\\output.txt',
-    convert = 'D:\\programs\\ImageMagick-6.8.7-3\\convert.exe',
+    convert = 'C:\\Programs\\ImageMagick-7.0.5-4-portable-Q16-x64\\convert.exe',
     output_file,
     output,
     tmp, tmp1, tmp2,
     x, y, w, h;
+
+function saveForWeb(png) {
+    var options = new ExportOptionsSaveForWeb();
+    options.format = SaveDocumentType.PNG;
+    options.PNG8 = false;
+    activeDocument.exportDocument(new File(png), ExportType.SAVEFORWEB, options);
+}
 
 function slice(x, y, w, h) {
     var idMk = charIDToTypeID( "Mk  " );
@@ -44,7 +51,7 @@ function slice(x, y, w, h) {
     executeAction( idMk, desc67, DialogModes.NO );
 }
 
-activeDocument.saveAs(new File(tmp_png), new PNGSaveOptions(), true, Extension.LOWERCASE);
+saveForWeb(tmp_png);
 system(convert + ' ' + tmp_png + ' -trim info: > ' + output_path);
 output_file = new File(output_path);
 output_file.open('r');
