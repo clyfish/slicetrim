@@ -31,9 +31,18 @@ function slice(bounds) {
 
 oldRulerUnits = preferences.rulerUnits;
 preferences.rulerUnits = Units.PIXELS;
+
+for (i = 0; i < activeDocument.layers.length; i++) {
+    if (activeDocument.layers[i].visible) {
+        activeDocument.activeLayer = activeDocument.layers[i];
+        break;
+    }
+}
+
 activeDocument.mergeVisibleLayers();
 bounds = activeDocument.activeLayer.bounds;
 bounds = [parseFloat(bounds[0], 10), parseFloat(bounds[1], 10), parseFloat(bounds[2], 10), parseFloat(bounds[3], 10)];
 executeAction(charIDToTypeID('undo'), undefined, DialogModes.NO);
 slice(bounds);
+
 preferences.rulerUnits = oldRulerUnits;
